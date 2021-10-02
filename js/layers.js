@@ -217,7 +217,7 @@ addLayer("c", {
             effectDisplay() {if (hasUpgrade(this.layer,this.id)) return "Lv1 Effect *"+format(upgradeEffect(this.layer, this.id)) 
                             else return 'Guess it.'},
             unlocked(){
-                if (getBuyableAmount(this.layer, 12).gte(40) || (hasUpgrade(this.layer,this.id))) return true
+                if (getBuyableAmount(this.layer, 12).gte(30) || (hasUpgrade(this.layer,this.id))) return true
                 else return false},
         },
         23: {

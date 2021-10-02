@@ -1,6 +1,6 @@
 let modInfo = {
-	name: "The Tree Of Gates",
-	id: "Old-Memory",
+	name: "The Tree Of Gates:Rewritten",
+	id: "New-Memory",
 	author: "ajchen",
 	pointsName: "Points",
 	modFiles: ["layers.js", "tree.js"],
@@ -13,8 +13,8 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.5",
-	name: "In the memory of",
+	num: "0.6",
+	name: "\"Give up and Let it go.\"",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
