@@ -7,7 +7,7 @@ let modInfo = {
 
 	discordName: "",
 	discordLink: "",
-	initialStartPoints: new Decimal (0), // Used for hard resets and new players
+	initialStartPoints: new Decimal (10), // Used for hard resets and new players
 	offlineLimit: 1,  // In hours
 }
 
@@ -41,9 +41,9 @@ function getPointGen() {
 
 	let base = new Decimal(0.1)
 	let coinAdds = buyableEffect('c',11).add(buyableEffect('c',12))
-	let secretBuff = player.points.root(2).add(1)
-	//return base.times(secretBuff).add(coinAdds)
-	return player.points.pow(player.points.pow(player.points.log(10)).log(10)).log(10)
+	//let secretBuff = player.points.root(2).add(1)
+	let secretBuff = player.points.pow(player.points.pow(player.points.log(10)).log(10)).log(10)
+	return base.times(secretBuff).add(coinAdds)
 }
 
 // You can add non-layer related variables that should to into "player" and be saved here, along with default values

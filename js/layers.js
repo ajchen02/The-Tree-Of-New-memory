@@ -73,11 +73,12 @@ addLayer("c", {
             },
 
             effect(){
-                let base =getBuyableAmount(this.layer,this.id).div(10)
+                let time =getBuyableAmount(this.layer,this.id)
+                let base =new Decimal(0.1)
                 let gain =new Decimal(1)
-                if(hasUpgrade(this.layer,11))base=base.add(upgradeEffect(this.layer,22))
+                if(hasUpgrade(this.layer,11))base=base.add(upgradeEffect(this.layer,11))
                 if(hasUpgrade(this.layer,22))gain=gain.times(upgradeEffect(this.layer,22))
-                return base.times(gain)
+                return time.times(base).times(gain)
             },
             
             unlocked(){
@@ -118,11 +119,12 @@ addLayer("c", {
             },
 
             effect(){
-                let base = getBuyableAmount(this.layer,this.id)
-                let gain = new Decimal(1)
+                let time =getBuyableAmount(this.layer,this.id)
+                let base =new Decimal(1)
+                let gain =new Decimal(1)
                 if (hasUpgrade(this.layer,21)) base = base.times(upgradeEffect(this.layer,21))
                 if (hasUpgrade(this.layer,25)) gain = gain.times(upgradeEffect(this.layer,25))
-                return base.times(gain)
+                return time.times(base).times(gain)
             },
 
             abtick:0,
@@ -217,7 +219,7 @@ addLayer("c", {
             effectDisplay() {if (hasUpgrade(this.layer,this.id)) return "Lv1 Effect *"+format(upgradeEffect(this.layer, this.id)) 
                             else return 'Guess it.'},
             unlocked(){
-                if (getBuyableAmount(this.layer, 12).gte(30) || (hasUpgrade(this.layer,this.id))) return true
+                if (getBuyableAmount(this.layer, 12).gte(25) || (hasUpgrade(this.layer,this.id))) return true
                 else return false},
         },
         23: {
@@ -230,7 +232,7 @@ addLayer("c", {
             },
             effectDisplay() {return "Coins gain *"+format(upgradeEffect(this.layer, this.id))},
             unlocked(){
-                if (getBuyableAmount(this.layer, 12).gte(45) || (hasUpgrade(this.layer,this.id))) return true
+                if (getBuyableAmount(this.layer, 12).gte(45) || (hasUpgrade(this.layer,this.id)) || (hasUpgrade(this.layer,this.id-1))) return true
                 else return false},
         },
         24: {
@@ -238,7 +240,7 @@ addLayer("c", {
             description: "Now, but you need some grind.",
             cost: new Decimal(33333333),
             unlocked(){
-                if (getBuyableAmount(this.layer, 12).gte(55) || (hasUpgrade(this.layer,this.id))) return true
+                if (getBuyableAmount(this.layer, 12).gte(40) || (hasUpgrade(this.layer,this.id))) return true
                 else return false},
         },
         25: {
